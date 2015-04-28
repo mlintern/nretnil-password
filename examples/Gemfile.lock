@@ -1,0 +1,21 @@
+GIT
+  remote: https://github.com/mlintern/compendium-api
+  revision: 8ac0eb8a290ba8c2618fa70818efded6bec04ca1
+  specs:
+    compendium-api (0.10.3)
+      httparty (~> 0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    httparty (0.13.1)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
+    json (1.8.1)
+    multi_xml (0.5.5)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  compendium-api!
