@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.homepage    = "http://github.com/mlintern/nretnil-password"
   s.date        = Time.now.strftime("%Y-%m-%d")
   s.summary     = "Password Generator"
-  s.description = "Password Generator of different complexities."
+  s.description = "Password generator of different complexities."
   s.license     = 'MIT'
   s.extra_rdoc_files = [
     "LICENSE",
