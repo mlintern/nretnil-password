@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Mark Lintern"]
   s.email       = ["lintern.mark@gmail.com"]
-  s.homepage    = "http://github.com/mlintern/password"
+  s.homepage    = "http://github.com/mlintern/nretnil-password"
   s.date        = Time.now.strftime("%Y-%m-%d")
   s.summary     = "Password Generator"
   s.description = "Password Generator of different complexities."
@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
      "README.md"
   ]
 
-  s.post_install_message = "You thought HTTParty partied hard?!"
+  s.post_install_message = "Know your target and what's behind it."
 
   s.required_rubygems_version = ">= 0.0.0"
  
