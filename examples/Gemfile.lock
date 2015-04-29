@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/mlintern/nretnil-password
-  revision: 0c4bc3c137e469af98fc3681390bf0e469e5da11
+  revision: 15f62cee7c4d03c87d5e98668933e3f5e4d16463
   specs:
-    nretnil-password (0.0.1)
+    nretnil-password (0.0.2)
 
 GEM
   remote: https://rubygems.org/
