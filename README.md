@@ -1,8 +1,6 @@
 <h2>Version: 0.0.3</h2>
 
-[See Examples Here](examples)
-
-<h1>Initialization:</h1>
+<h1>Usage:</h1>
 
 ```ruby
 
