@@ -33,7 +33,15 @@ module Nretnil
           phonetic = case_rand == 0 ? @@phonetic_alpha[sym_rand] : @@phonetic_alpha[sym_rand].upcase
         end
       else
-
+        type_rand = rand(10)
+        if type_rand < 3 # number
+          actual = phonetic = rand(10)
+        else # letter
+          case_rand = rand(2)
+          sym_rand = rand(@@alpha.length)
+          actual = case_rand == 0 ? @@alpha[sym_rand] : @@alpha[sym_rand].upcase
+          phonetic = case_rand == 0 ? @@phonetic_alpha[sym_rand] : @@phonetic_alpha[sym_rand].upcase
+        end
       end
 
       { :a => actual, :p => phonetic}
