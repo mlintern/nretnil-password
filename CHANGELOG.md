@@ -1,10 +1,10 @@
 <h4>0.0.3</h4>
 
-* generate fix
+* Fix for generate function
 
 <h4>0.0.2</h4>
 
-* uuid
+* Added uuid feature
 
 <h4>0.0.1</h4>
 
