@@ -59,7 +59,7 @@ module Nretnil
       { :password => password, :phonetic => phonetic }
     end
 
-    def self.manual(length, characters = [])
+    def self.custom(length, characters = [])
       password = ""
       
       (1..length).each do |i|

@@ -1,3 +1,7 @@
+<h4>0.0.4</h4>
+
+* rename manual to custom
+
 <h4>0.0.3</h4>
 
 * Fix for generate function
