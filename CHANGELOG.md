@@ -1,3 +1,7 @@
+<h4>0.1.0</h4>
+
+* Intial Release
+
 <h4>0.0.4</h4>
 
 * rename manual to custom
