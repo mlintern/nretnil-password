@@ -71,7 +71,7 @@ module Nretnil
 
     def self.uuid
       uuid = ""
-      (1..32).each do |i|
+      (0...32).each do |i|
         uuid += '-' if [8,12,16,20].include? i
         uuid += @@hex[rand(16)].to_s
       end

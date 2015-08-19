@@ -1,3 +1,7 @@
+<h4>0.1.1</h4>
+
+* uuid generator fix
+
 <h4>0.1.0</h4>
 
 * Intial Release
