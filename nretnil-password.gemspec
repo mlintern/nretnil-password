@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Mark Lintern"]
   s.email       = ["lintern.mark@gmail.com"]
-  s.homepage    = "http://github.com/mlintern/nretnil-password"
+  s.homepage    = "http://github.com/nretnilkram/nretnil-password"
   s.date        = Time.now.strftime("%Y-%m-%d")
   s.summary     = "Password Generator"
   s.description = "Password generator of different complexities."
