@@ -1,3 +1,8 @@
+<h4>0.1.2</h4>
+
+* Updated @@ to Static Variables as they should have been
+* Updated Password to class from Module so it can be instansiated.
+
 <h4>0.1.1</h4>
 
 * uuid generator fix

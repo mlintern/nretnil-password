@@ -1,4 +1,4 @@
-<h2>Version: 0.1.1</h2>
+<h2>Version: 0.1.2</h2>
 
 <h1>Usage:</h1>
 
@@ -6,14 +6,14 @@
 
 ```ruby
 
-Nretnil::Password.generate(10,true)
-# => {:password=>"M7J+S5N2W9", :phonetic=>"MIKE 7 JULIET <plus> SIERRA 5 NOVEMBER 2 WHISKEY 9 "}
+Nretnil::Password.generate(10,symbols=true)
+# => {:password=>"daO1ukAX24", :phonetic=>"delta alpha OSCAR 1 uniform kilo ALPHA X-RAY 2 4 "}
 
-Nretnil::Password.generate(10,false)
-# => {:password=>"K4SmMtLDHd", :phonetic=>"KILO 4 SIERRA mike MIKE tango LIMA DELTA HOTEL delta "}
+Nretnil::Password.generate(10,symbols=false)
+# => {:password=>"AkDOb04vv2", :phonetic=>"ALPHA kilo DELTA OSCAR bravo 0 4 victor victor 2 "}
 
 Nretnil::Password.generate(10)
-# => {:password=>"N0I71bOGTH", :phonetic=>"NOVEMBER 0 INDIA 7 1 bravo OSCAR GOLF TANGO HOTEL "}
+# => {:password=>"msT8zRkR6e", :phonetic=>"mike sierra TANGO 8 zulu ROMEO kilo ROMEO 6 echo "}
 
 ```
 
@@ -22,7 +22,7 @@ Nretnil::Password.generate(10)
 ```ruby
 
 Nretnil::Password.phrase
-# => {:password=>"tomatowhalesellvolcano", :phonetic=>"tomato whale sell volcano"}
+# => {:password=>"yellowopossumdoproperty", :phonetic=>"yellow opossum do property"}
 
 ```
 
@@ -31,10 +31,10 @@ Nretnil::Password.phrase
 ```ruby
 
 Nretnil::Password.custom(20,[0,1,2,3,4,5,6,7,8,9,"a","b","c","d","e","f"])
-# => {:password=>"962b06ec69d558a881ec"}
+# => {:password=>"227ea441b81ee7f38718"}
 
 Nretnil::Password.custom(15,[0,1,2,3,4,5,6,7,8,9,"a","b","c","d","e","f"])[:password]
-# => e4333daed367b0f
+# => 72ec096d22951eb
 
 ```
 
@@ -43,6 +43,6 @@ Nretnil::Password.custom(15,[0,1,2,3,4,5,6,7,8,9,"a","b","c","d","e","f"])[:pass
 ```ruby
 
 Nretnil::Password.uuid
-# => f5583fd4-8527-3786-085f-dd0017ecbca3
+# => 684b5449-767a-2359-5081-7404aad955ea
 
 ```

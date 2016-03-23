@@ -8,12 +8,12 @@ puts "\n"
 puts "```ruby"
 puts "\n"
 
-puts "Nretnil::Password.generate(10,true)"
-puts "# => " + Nretnil::Password.generate(10,true).to_s
+puts "Nretnil::Password.generate(10,symbols=true)"
+puts "# => " + Nretnil::Password.generate(10,symbols=true).to_s
 puts "\n"
 
-puts "Nretnil::Password.generate(10,false)"
-puts "# => " + Nretnil::Password.generate(10,false).to_s
+puts "Nretnil::Password.generate(10,symbols=false)"
+puts "# => " + Nretnil::Password.generate(10,symbols=false).to_s
 puts "\n"
 
 puts "Nretnil::Password.generate(10)"
