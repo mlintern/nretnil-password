@@ -4,7 +4,7 @@ module Nretnil
   class Password
 
     SYMBOLS = ["~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "+"]
-    PHONETIC_SYMBOLS = ["<tilda>", "<explamation point>", "<at>", "<hash>", "<dollar sign>", "<percent sign>", "<carrot>", "<ampersand>", "<star>", "<left parenthesis>", "<right parenthesis>", "<dash>", "<plus>"]
+    PHONETIC_SYMBOLS = ["(tilda)", "(explamation point)", "(at)", "(hash)", "(dollar sign)", "(percent sign)", "(carrot)", "(ampersand)", "(star)", "(left parenthesis)", "(right parenthesis)", "(dash)", "(plus)"]
     ALPHA = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
     PHONETIC_ALPHA = ["alpha", "bravo", "charlie", "delta", "echo", "foxtrot", "golf", "hotel", "india", "juliet", "kilo", "lima", "mike", "november", "oscar", "papa", "quebec", "romeo", "sierra", "tango", "uniform", "victor", "whiskey", "x-ray", "yankee", "zulu"]
     COLORS = ["aliceblue","antiquewhite","aqua","aquamarine","azure","beige","bisque","black","blanchedalmond","blue","blueviolet","brown","burlywood","cadetblue","chartreuse","chocolate","coral","cornflowerblue","cornsilk","crimson","cyan","blue","cyan","goldenrod","gray","grey","green","khaki","magenta","olivegreen","orange","orchid","red","salmon","seagreen","gray","grey","turquoise","violet","deeppink","deepskyblue","dimgray","dimgrey","dodgerblue","firebrick","floralwhite","forestgreen","fuchsia","gainsboro","ghostwhite","gold","goldenrod","gray","grey","green","greenyellow","honeydew","hotpink","indianred","indigo","ivory","khaki","lavender","lavenderblush","lawngreen","lemonchiffon","blue","coral","cyan","goldenrodyellow","gray","grey","green","pink","salmon","seagreen","skyblue","gray","grey","steelblue","yellow","lime","limegreen","linen","magenta","maroon","midnightblue","mintcream","mistyrose","moccasin","navajowhite","navy","oldlace","olive","orange","orangered","orchid","papayawhip","peachpuff","perl","pink","plum","powderblue","purple","red","rosybrown","royalblue","saddlebrown","salmon","sandybrown","seagreen","seashell","sienna","silver","skyblue","snow","springgreen","steelblue","tan","teal","thistle","tomato","turquoise","violet","wheat","white","whitesmoke","yellow","yellowgreen"]
@@ -33,7 +33,7 @@ module Nretnil
         end
       else
         type_rand = rand(10)
-        if type_rand < 3 # number
+        if type_rand < 4 # number
           actual = phonetic = rand(10)
         else # letter
           case_rand = rand(2)
@@ -46,7 +46,7 @@ module Nretnil
       { :a => actual, :p => phonetic}
     end
 
-    def self.generate( length, symbols = false )
+    def self.generate( length = 15, symbols = false )
       password = ""
       phonetic = ""
       (1..length).each do |i|
@@ -58,7 +58,7 @@ module Nretnil
       { :password => password, :phonetic => phonetic }
     end
 
-    def self.custom(length, characters = [])
+    def self.custom( length, characters = [] )
       password = ""
       
       (1..length).each do |i|

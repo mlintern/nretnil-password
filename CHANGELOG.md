@@ -1,3 +1,8 @@
+<h4>0.1.3</h4>
+
+* Updated phonetic output for password symbols to be (symbol)
+* Set password default length to 15
+
 <h4>0.1.2</h4>
 
 * Updated @@ to Static Variables as they should have been
