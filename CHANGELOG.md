@@ -1,3 +1,7 @@
+<h4>0.1.4</h4>
+
+* Rubocop Updates
+
 <h4>0.1.3</h4>
 
 * Updated phonetic output for password symbols to be (symbol)
