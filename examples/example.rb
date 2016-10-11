@@ -72,3 +72,16 @@ puts "\n"
 
 puts '```'
 puts "\n"
+
+puts '<h3>Symbol Substitution</h3>'
+puts "\n"
+
+puts '```ruby'
+puts "\n"
+
+puts 'Nretnil::Password.sym_sub("string")'
+puts '# => ' + Nretnil::Password.sym_sub('string')
+puts "\n"
+
+puts '```'
+puts "\n"

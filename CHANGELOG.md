@@ -1,3 +1,7 @@
+<h4>0.1.5</h4>
+
+* sym_sub(string) function
+
 <h4>0.1.4</h4>
 
 * Rubocop Updates
