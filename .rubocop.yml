@@ -16,8 +16,16 @@ Metrics/AbcSize:
 Metrics/MethodLength:
   Max: 150
 
+Metrics/AbcSize:
+  Max: 30
+
+Metrics/CyclomaticComplexity:
+  Max: 10
+
+Metrics/PerceivedComplexity:
+  Max: 10
+
 Style/Encoding:
-  EnforcedStyle: always
   Enabled: true
 
 Style/FrozenStringLiteralComment:

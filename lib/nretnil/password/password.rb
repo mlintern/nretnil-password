@@ -1,5 +1,4 @@
 #!/bin/env ruby
-# encoding: UTF-8
 # frozen_string_literal: true
 
 require 'rubygems'
@@ -8,9 +7,10 @@ module Nretnil
   # Password Class
   class Password
     SYMBOLS = ['~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '+'].freeze
-    PHONETIC_SYMBOLS = ['(tilda)', '(explamation point)', '(at)', '(hash)', '(dollar sign)', '(percent sign)', '(carrot)', '(ampersand)', '(star)', '(left parenthesis)', '(right parenthesis)', '(dash)', '(plus)'].freeze
-    ALPHA = %w(a b c d e f g h i j k l m n o p q r s t u v w x y z).freeze
+    PHONETIC_SYMBOLS = ['(tilda)', '(exclamation point)', '(at)', '(hash)', '(dollar sign)', '(percent sign)', '(carrot)', '(ampersand)', '(star)', '(left parenthesis)', '(right parenthesis)', '(dash)', '(plus)'].freeze
+    ALPHA = %w[a b c d e f g h i j k l m n o p q r s t u v w x y z].freeze
     PHONETIC_ALPHA = ['alpha', 'bravo', 'charlie', 'delta', 'echo', 'foxtrot', 'golf', 'hotel', 'india', 'juliet', 'kilo', 'lima', 'mike', 'november', 'oscar', 'papa', 'quebec', 'romeo', 'sierra', 'tango', 'uniform', 'victor', 'whiskey', 'x-ray', 'yankee', 'zulu'].freeze
+    PHONETIC_NUMBERS = ['ze ro', 'wun', 'too', 'tree', 'row er', 'fife', 'six', 'seven', 'ait', 'niner'].freeze
     HEX = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f'].freeze
     SUBSTITUTIONS = { a: '@', e: '3', i: '!', o: '0', s: '$' }.freeze
 
@@ -47,6 +47,25 @@ module Nretnil
     def self.get_next(symbols = false)
       return charater_with_symbols if symbols
       character_no_symbols
+    end
+
+    def self.to_phonetic(password)
+      return false if password.nil?
+      new_pass = ''
+      password.split('').each do |c|
+        new_char = ''
+        cap = (c == c.upcase)
+        space = c.strip.empty?
+        alpha = ALPHA.find_index(c.downcase)
+        sym = SYMBOLS.find_index(c)
+        new_char = '(' + PHONETIC_ALPHA[alpha] + ')' unless alpha.nil?
+        new_char = PHONETIC_SYMBOLS[sym].upcase unless sym.nil?
+        new_char = '(' + PHONETIC_NUMBERS[c.to_i] + ')' if alpha.nil? && sym.nil? && !space
+        new_char = '(SPACE)' if space
+        new_pass += cap && !alpha.nil? ? new_char.upcase.gsub('(', '(CAPITAL-') : new_char.upcase
+        new_pass += ' '
+      end
+      new_pass
     end
 
     def self.generate(length = 15, symbols = false)

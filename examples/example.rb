@@ -1,5 +1,4 @@
 #!/bin/env ruby
-# encoding: UTF-8
 # frozen_string_literal: true
 
 require 'rubygems'
@@ -55,6 +54,23 @@ puts "\n"
 
 puts 'Nretnil::Password.custom(15, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, \'a\', \'b\', \'c\', \'d\', \'e\', \'f\'])[:password]'
 puts '# => ' + Nretnil::Password.custom(15, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f'])[:password]
+puts "\n"
+
+puts '```'
+puts "\n"
+
+puts '<h3>Phonetic</h3>'
+puts "\n"
+
+puts '```ruby'
+puts "\n"
+
+password = 'aBcD 1234 !@#$'
+
+puts "password=\"#{password}\"\n\n"
+
+puts 'Nretnil::Password.to_phonetic(password)'
+puts '# => ' + Nretnil::Password.to_phonetic(password).to_s
 puts "\n"
 
 puts '```'
