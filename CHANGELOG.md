@@ -1,3 +1,11 @@
+<h4>0.1.7</h4>
+
+* to_phonetic(password) function
+
+<h4>0.1.6</h4>
+
+* Updated Words and Colors to use same set as FakeData
+
 <h4>0.1.5</h4>
 
 * sym_sub(string) function
