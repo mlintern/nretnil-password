@@ -58,3 +58,10 @@ Nretnil::Password.sym_sub("string")
 # => $tr!ng
 
 ```
+
+
+## Testing
+```
+bundle Install
+bundle exec rspec spec/spec_netnil_password.rb
+```

@@ -6,15 +6,9 @@ require 'rubygems'
 module Nretnil
   # Password Class
   class Password
-    SYMBOLS = ['~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '+'].freeze
-    PHONETIC_SYMBOLS = ['(tilda)', '(exclamation point)', '(at)', '(hash)', '(dollar sign)', '(percent sign)', '(carrot)', '(ampersand)', '(star)', '(left parenthesis)', '(right parenthesis)', '(dash)', '(plus)'].freeze
-    ALPHA = %w[a b c d e f g h i j k l m n o p q r s t u v w x y z].freeze
-    PHONETIC_ALPHA = ['alpha', 'bravo', 'charlie', 'delta', 'echo', 'foxtrot', 'golf', 'hotel', 'india', 'juliet', 'kilo', 'lima', 'mike', 'november', 'oscar', 'papa', 'quebec', 'romeo', 'sierra', 'tango', 'uniform', 'victor', 'whiskey', 'x-ray', 'yankee', 'zulu'].freeze
-    PHONETIC_NUMBERS = ['ze ro', 'wun', 'too', 'tree', 'row er', 'fife', 'six', 'seven', 'ait', 'niner'].freeze
-    HEX = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f'].freeze
     SUBSTITUTIONS = { a: '@', e: '3', i: '!', o: '0', s: '$' }.freeze
 
-    def self.charater_with_symbols
+    def self.character_with_symbols
       type_rand = rand(10)
       if type_rand < 3 # number
         a = p = rand(10)
@@ -45,12 +39,14 @@ module Nretnil
     end
 
     def self.get_next(symbols = false)
-      return charater_with_symbols if symbols
+      return character_with_symbols if symbols
+
       character_no_symbols
     end
 
     def self.to_phonetic(password)
       return false if password.nil?
+
       new_pass = ''
       password.split('').each do |c|
         new_char = ''
@@ -65,7 +61,7 @@ module Nretnil
         new_pass += cap && !alpha.nil? ? new_char.upcase.gsub('(', '(CAPITAL-') : new_char.upcase
         new_pass += ' '
       end
-      new_pass
+      new_pass.strip
     end
 
     def self.generate(length = 15, symbols = false)

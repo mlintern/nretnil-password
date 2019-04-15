@@ -10,9 +10,6 @@ Metrics/LineLength:
   Max: 300
   Enabled: false
 
-Metrics/AbcSize:
-  Max: 25
-
 Metrics/MethodLength:
   Max: 150
 

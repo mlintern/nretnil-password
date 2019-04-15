@@ -1,7 +1,7 @@
 #!/bin/env ruby
 # frozen_string_literal: true
 
-$LOAD_PATH.push File.expand_path('../lib', __FILE__)
+$LOAD_PATH.push File.expand_path('lib', __dir__)
 
 require 'nretnil/password/version'
 
@@ -24,6 +24,8 @@ Gem::Specification.new do |s|
   s.post_install_message = "Know your target and what's behind it."
 
   s.required_rubygems_version = '>= 0.0.0'
+
+  s.add_development_dependency 'rspec'
 
   s.files         = Dir.glob('{bin,lib}/**/*') + %w[LICENSE README.md CHANGELOG.md]
   s.rdoc_options  = ['--charset=UTF-8']
