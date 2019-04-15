@@ -2,50 +2,54 @@
 
 require 'spec_helper'
 
-describe 'Nretnil::Password.character_with_symbols' do
+describe 'character_with_symbols' do
   before do
+    @pass = Nretnil::Password.new
   end
 
   it 'should produce a hash with a char and photnec equivalent' do
-    expect(Nretnil::Password.character_with_symbols.is_a?(Hash)).to be true
-    expect(Nretnil::Password.character_with_symbols[:a].nil?).to be false
-    expect(Nretnil::Password.character_with_symbols[:p].nil?).to be false
+    expect(@pass.character_with_symbols.is_a?(Hash)).to be true
+    expect(@pass.character_with_symbols[:a].nil?).to be false
+    expect(@pass.character_with_symbols[:p].nil?).to be false
   end
 end
 
-describe 'Nretnil::Password.character_no_symbols' do
+describe 'character_no_symbols' do
   before do
-    @character_set = Nretnil::Password.character_no_symbols
+    @pass = Nretnil::Password.new
+    @character_set = @pass.character_no_symbols
   end
 
   it 'should produce a hash with a char and photnec equivalent' do
     expect(@character_set.is_a?(Hash)).to be true
     expect(@character_set[:a].nil?).to be false
     expect(@character_set[:p].nil?).to be false
-    expect(Nretnil::Password.symbols.include?(@character_set[:a])).to be false
-    expect(Nretnil::Password.phonetic_symbols.include?(@character_set[:p])).to be false
+    expect(@pass.symbols.include?(@character_set[:a])).to be false
+    expect(@pass.phonetic_symbols.include?(@character_set[:p])).to be false
   end
 end
 
-describe 'Nretnil::Password.get_next' do
+describe 'get_next' do
   before do
+    @pass = Nretnil::Password.new
   end
 
   it 'should produce a hash with a char and photnec equivalent' do
-    expect(Nretnil::Password.get_next.is_a?(Hash)).to be true
-    expect(Nretnil::Password.get_next[:a].nil?).to be false
-    expect(Nretnil::Password.get_next[:p].nil?).to be false
+    expect(@pass.get_next.is_a?(Hash)).to be true
+    expect(@pass.get_next[:a].nil?).to be false
+    expect(@pass.get_next[:p].nil?).to be false
   end
 end
 
-describe 'Nretnil::Password.to_phonetic' do
+describe 'to_phonetic' do
   before do
+    @pass = Nretnil::Password.new
     @password = '0n3T20Thr33'
   end
 
   it '("0n3T20Thr33") should produce a string with correct phonetic parts' do
-    expect(Nretnil::Password.to_phonetic(@password)).to eq '(ZE-RO) (NOVEMBER) (TREE) (CAPITAL-TANGO) (TOO) (ZE-RO) (CAPITAL-TANGO) (HOTEL) (ROMEO) (TREE) (TREE)'
-    expect(Nretnil::Password.to_phonetic(@password).split(' ').length).to eq @password.length
+    expect(@pass.to_phonetic(@password)).to eq '(ZE-RO) (NOVEMBER) (TREE) (CAPITAL-TANGO) (TOO) (ZE-RO) (CAPITAL-TANGO) (HOTEL) (ROMEO) (TREE) (TREE)'
+    expect(@pass.to_phonetic(@password).split(' ').length).to eq @password.length
   end
 end
 

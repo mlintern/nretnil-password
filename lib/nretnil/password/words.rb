@@ -2713,5 +2713,21 @@ module Nretnil
       resident
     ].freeze
     WORDS = VERBS + NOUNS + ADJECTIVES + ANIMALS
+
+    def verbs
+      VERBS
+    end
+
+    def nouns
+      NOUNS
+    end
+
+    def adjectives
+      ADJECTIVES
+    end
+
+    def animals
+      ANIMALS
+    end
   end
 end

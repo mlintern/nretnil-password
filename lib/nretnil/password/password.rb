@@ -8,55 +8,59 @@ module Nretnil
   class Password
     SUBSTITUTIONS = { a: '@', e: '3', i: '!', o: '0', s: '$' }.freeze
 
-    def self.character_with_symbols
+    def character_with_symbols
+      pass = Password.new
       type_rand = rand(10)
       if type_rand < 3 # number
         a = p = rand(10)
       elsif type_rand > 7 # symbol
-        sym_rand = rand(SYMBOLS.length)
-        a = SYMBOLS[sym_rand]
-        p = PHONETIC_SYMBOLS[sym_rand]
+        sym_rand = rand(pass.symbols.length)
+        a = pass.symbols[sym_rand]
+        p = pass.phonetic_symbols[sym_rand]
       else # letter
         case_rand = rand(2)
-        sym_rand = rand(ALPHA.length)
-        a = case_rand.zero? ? ALPHA[sym_rand] : ALPHA[sym_rand].upcase
-        p = case_rand.zero? ? PHONETIC_ALPHA[sym_rand] : PHONETIC_ALPHA[sym_rand].upcase
+        sym_rand = rand(pass.alpha.length)
+        a = case_rand.zero? ? pass.alpha[sym_rand] : pass.alpha[sym_rand].upcase
+        p = case_rand.zero? ? pass.phonetic_alpha[sym_rand] : pass.phonetic_alpha[sym_rand].upcase
       end
       { a: a, p: p }
     end
 
-    def self.character_no_symbols
+    def character_no_symbols
+      pass = Password.new
       type_rand = rand(10)
       if type_rand < 4 # number
         a = p = rand(10)
       else # letter
         case_rand = rand(2)
-        sym_rand = rand(ALPHA.length)
-        a = case_rand.zero? ? ALPHA[sym_rand] : ALPHA[sym_rand].upcase
-        p = case_rand.zero? ? PHONETIC_ALPHA[sym_rand] : PHONETIC_ALPHA[sym_rand].upcase
+        sym_rand = rand(pass.alpha.length)
+        a = case_rand.zero? ? pass.alpha[sym_rand] : pass.alpha[sym_rand].upcase
+        p = case_rand.zero? ? pass.phonetic_alpha[sym_rand] : pass.phonetic_alpha[sym_rand].upcase
       end
       { a: a, p: p }
     end
 
-    def self.get_next(symbols = false)
-      return character_with_symbols if symbols
+    def get_next(symbols = false)
+      pass = Password.new
+      return pass.character_with_symbols if symbols
 
-      character_no_symbols
+      pass.character_no_symbols
     end
 
-    def self.to_phonetic(password)
+    def to_phonetic(password)
       return false if password.nil?
 
+      pass = Password.new
       new_pass = ''
       password.split('').each do |c|
         new_char = ''
         cap = (c == c.upcase)
         space = c.strip.empty?
-        alpha = ALPHA.find_index(c.downcase)
-        sym = SYMBOLS.find_index(c)
-        new_char = '(' + PHONETIC_ALPHA[alpha] + ')' unless alpha.nil?
-        new_char = PHONETIC_SYMBOLS[sym].upcase unless sym.nil?
-        new_char = '(' + PHONETIC_NUMBERS[c.to_i] + ')' if alpha.nil? && sym.nil? && !space
+        alpha = pass.alpha.find_index(c.downcase)
+        sym = pass.symbols.find_index(c)
+        new_char = '(' + pass.phonetic_alpha[alpha] + ')' unless alpha.nil?
+        new_char = pass.phonetic_symbols[sym].upcase unless sym.nil?
+        new_char = '(' + pass.phonetic_numbers[c.to_i] + ')' if alpha.nil? && sym.nil? && !space
         new_char = '(SPACE)' if space
         new_pass += cap && !alpha.nil? ? new_char.upcase.gsub('(', '(CAPITAL-') : new_char.upcase
         new_pass += ' '
@@ -65,10 +69,11 @@ module Nretnil
     end
 
     def self.generate(length = 15, symbols = false)
+      pass = Password.new
       password = ''
       phonetic = ''
       (1..length).each do |_i|
-        char = get_next(symbols)
+        char = pass.get_next(symbols)
         password += char[:a].to_s
         phonetic += char[:p].to_s + ' '
       end
@@ -87,16 +92,18 @@ module Nretnil
     end
 
     def self.uuid
+      pass = Password.new
       uuid = ''
       (0...32).each do |i|
         uuid += '-' if [8, 12, 16, 20].include? i
-        uuid += HEX[rand(16)].to_s
+        uuid += pass.hex[rand(16)].to_s
       end
       uuid
     end
 
     def self.phrase
-      phonetic = COLORS[rand(COLORS.length)][:name].downcase + ' ' + ANIMALS[rand(ANIMALS.length)] + ' ' + VERBS[rand(VERBS.length)] + ' ' + NOUNS[rand(NOUNS.length)]
+      pass = Password.new
+      phonetic = pass.colors[rand(pass.colors.length)][:name].downcase + ' ' + pass.animals[rand(pass.animals.length)] + ' ' + pass.verbs[rand(pass.verbs.length)] + ' ' + pass.nouns[rand(pass.nouns.length)]
       password = phonetic.delete(' ')
       { password: password, phonetic: phonetic, sym_sub_pass: sym_sub(password), sym_sub_phon: sym_sub(phonetic) }
     end

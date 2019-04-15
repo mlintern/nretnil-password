@@ -13,27 +13,27 @@ module Nretnil
     PHONETIC_NUMBERS = ['ze-ro', 'wun', 'too', 'tree', 'row er', 'fife', 'six', 'seven', 'ait', 'niner'].freeze
     HEX = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f'].freeze
 
-    def self.symbols
+    def symbols
       SYMBOLS
     end
 
-    def self.phonetic_symbols
+    def phonetic_symbols
       PHONETIC_SYMBOLS
     end
 
-    def self.alpha
+    def alpha
       ALPHA
     end
 
-    def self.phonetic_alpha
+    def phonetic_alpha
       PHONETIC_ALPHA
     end
 
-    def self.phonetic_numbers
+    def phonetic_numbers
       PHONETIC_NUMBERS
     end
 
-    def self.hex
+    def hex
       HEX
     end
   end
