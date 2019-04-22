@@ -1,3 +1,11 @@
+<h4>0.2.1</h4>
+
+* Removed trailing space from phonetic version
+
+<h4>0.2.0</h4>
+
+* Cleaned up code with rubocop and added unit tests
+
 <h4>0.1.7</h4>
 
 * to_phonetic(password) function

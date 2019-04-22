@@ -47,7 +47,7 @@ module Nretnil
       pass.character_no_symbols
     end
 
-    def to_phonetic(password)
+    def self.to_phonetic(password)
       return false if password.nil?
 
       pass = Password.new
@@ -78,7 +78,7 @@ module Nretnil
         phonetic += char[:p].to_s + ' '
       end
 
-      { password: password, phonetic: phonetic }
+      { password: password, phonetic: phonetic.strip }
     end
 
     def self.custom(length, characters = [])

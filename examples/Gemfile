@@ -3,4 +3,4 @@
 
 source 'https://rubygems.org'
 
-gem 'nretnil-password', git: 'https://github.com/nretnilkram/nretnil-password'
+gem 'nretnil-password', path: '..'

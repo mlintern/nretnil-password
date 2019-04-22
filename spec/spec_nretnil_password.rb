@@ -43,13 +43,12 @@ end
 
 describe 'to_phonetic' do
   before do
-    @pass = Nretnil::Password.new
     @password = '0n3T20Thr33'
   end
 
   it '("0n3T20Thr33") should produce a string with correct phonetic parts' do
-    expect(@pass.to_phonetic(@password)).to eq '(ZE-RO) (NOVEMBER) (TREE) (CAPITAL-TANGO) (TOO) (ZE-RO) (CAPITAL-TANGO) (HOTEL) (ROMEO) (TREE) (TREE)'
-    expect(@pass.to_phonetic(@password).split(' ').length).to eq @password.length
+    expect(Nretnil::Password.to_phonetic(@password)).to eq '(ZE-RO) (NOVEMBER) (TREE) (CAPITAL-TANGO) (TOO) (ZE-RO) (CAPITAL-TANGO) (HOTEL) (ROMEO) (TREE) (TREE)'
+    expect(Nretnil::Password.to_phonetic(@password).split(' ').length).to eq @password.length
   end
 end
 

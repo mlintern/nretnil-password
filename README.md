@@ -1,4 +1,4 @@
-<h2>Version: 0.2.0</h2>
+<h2>Version: 0.2.1</h2>
 
 <h1>Usage:</h1>
 
@@ -7,16 +7,16 @@
 ```ruby
 
 Nretnil::Password.generate
-# => {:password=>"xQ2o6jCfXhtm2jk", :phonetic=>"x-ray QUEBEC 2 oscar 6 juliet CHARLIE foxtrot X-RAY hotel tango mike 2 juliet kilo "}
+# => {:password=>"6SoiSo979F1IUva", :phonetic=>"6 SIERRA oscar india SIERRA oscar 9 7 9 FOXTROT 1 INDIA UNIFORM victor alpha"}
 
 Nretnil::Password.generate(25,true)
-# => {:password=>"0V1roG@27#eac4d-MgH1v12i2", :phonetic=>"0 VICTOR 1 romeo oscar GOLF (at) 2 7 (hash) echo alpha charlie 4 delta (dash) MIKE golf HOTEL 1 victor 1 2 india 2 "}
+# => {:password=>"m0#~~2fC)xQ9FrA9EhV2ya7WZ", :phonetic=>"mike 0 (hash) (tilda) (tilda) 2 foxtrot CHARLIE (right-parenthesis) x-ray QUEBEC 9 FOXTROT romeo ALPHA 9 ECHO hotel VICTOR 2 yankee alpha 7 WHISKEY ZULU"}
 
 Nretnil::Password.generate(20,false)
-# => {:password=>"04633Z0G6q90q1949QRQ", :phonetic=>"0 4 6 3 3 ZULU 0 GOLF 6 quebec 9 0 quebec 1 9 4 9 QUEBEC ROMEO QUEBEC "}
+# => {:password=>"7eS92RRJYIQFK33L9hhP", :phonetic=>"7 echo SIERRA 9 2 ROMEO ROMEO JULIET YANKEE INDIA QUEBEC FOXTROT KILO 3 3 LIMA 9 hotel hotel PAPA"}
 
 Nretnil::Password.generate(11)
-# => {:password=>"7IksUf09P63", :phonetic=>"7 INDIA kilo sierra UNIFORM foxtrot 0 9 PAPA 6 3 "}
+# => {:password=>"sw1czI13iTt", :phonetic=>"sierra whiskey 1 charlie zulu INDIA 1 3 india TANGO tango"}
 
 ```
 
@@ -25,7 +25,7 @@ Nretnil::Password.generate(11)
 ```ruby
 
 Nretnil::Password.phrase
-# => {:password=>"radicalredrabbitapproachproduce", :phonetic=>"radical red rabbit approach produce", :sym_sub_pass=>"r@d!c@lr3dr@bb!t@ppr0@chpr0duc3", :sym_sub_phon=>"r@d!c@l r3d r@bb!t @ppr0@ch pr0duc3"}
+# => {:password=>"earthyellowmuskdeersitbike", :phonetic=>"earth yellow musk deer sit bike", :sym_sub_pass=>"3@rthy3ll0wmu$kd33r$!tb!k3", :sym_sub_phon=>"3@rth y3ll0w mu$k d33r $!t b!k3"}
 
 ```
 
@@ -34,10 +34,21 @@ Nretnil::Password.phrase
 ```ruby
 
 Nretnil::Password.custom(20, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f'])
-# => {:password=>"b06986ee06f2b3a3a940"}
+# => {:password=>"4aed41ac2bf4846ae3e0"}
 
 Nretnil::Password.custom(15, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f'])[:password]
-# => 4252f21eebbf746
+# => 6a94a8a763b4c3b
+
+```
+
+<h3>Phonetic</h3>
+
+```ruby
+
+password="aBcD 1234 !@#$"
+
+Nretnil::Password.to_phonetic(password)
+# => (ALPHA) (CAPITAL-BRAVO) (CHARLIE) (CAPITAL-DELTA) (SPACE) (WUN) (TOO) (TREE) (ROW ER) (SPACE) (EXCLAMATION-POINT) (AT) (HASH) (DOLLAR-SIGN)
 
 ```
 
@@ -46,7 +57,7 @@ Nretnil::Password.custom(15, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 
 ```ruby
 
 Nretnil::Password.uuid
-# => 4ec19680-f725-f1f4-1841-aa8b386159c6
+# => c48ff793-aacb-e4de-2cb1-ef525633c42f
 
 ```
 
